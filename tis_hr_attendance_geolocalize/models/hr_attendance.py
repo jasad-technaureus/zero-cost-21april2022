@@ -3,9 +3,15 @@
 # - © Technaureus Info Solutions Pvt. Ltd 2020. All rights reserved.
 
 from odoo import models, fields, api, exceptions, _
-import httpagentparser
+#import httpagentparser
 from odoo.http import request
 
+
+try:
+    import httpagentparser
+except ImportError:
+    raise ImportError(
+        'This module needs httpagentparser. Please install httpagentparser on your system. (sudo pip3 install httpagentparser)')
 
 class HrAttendance(models.Model):
     _inherit = "hr.attendance"
